@@ -1,8 +1,7 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 const config = require('config');
 const db = config.get('mongoURI');
 
-{ useUnifiedTopology: true }
 
 const connectDB = async () => {
   try {
