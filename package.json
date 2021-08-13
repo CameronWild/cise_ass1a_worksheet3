@@ -4,15 +4,14 @@
   "description": "Tutorial week 3 ",
   "main": "app.js",
   "scripts": {
-    
     "app": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd booksfrontend && npm run build",
-    "install-client": "npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "build": "npm run build --prefix booksfrontend",
+    "install-client": "npm install --prefix booksfrontend",
+    "heroku-postbuild": "npm run install --prefix booksfrontend && npm run build --prefix booksfrontend",
     "server": "nodemon app.js",
-    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix booksfrontend\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix booksfrontend\""
+    "develop": "concurrently --kill-others-on-fail \"npm run app\" \"npm run start --prefix booksfrontend\"",
+    "start": "concurrently --kill-others-on-fail \"npm run app\" \"npm start --prefix booksfrontend\""
   },
   "repository": {
     "type": "git",
@@ -36,5 +35,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
+  },
+  "engines": {
+    "node": "14.17.3"
   }
 }
