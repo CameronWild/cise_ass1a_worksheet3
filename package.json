@@ -7,9 +7,9 @@
     "start": "node app.js && concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
     "app": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd cise_ass1a_worksheet3 && npm run build",
-    "install-client": "cd cise_ass1a_worksheet3 && npm install",
-    "heroku-postbuild": "npm run install-cise_ass1a_worksheet3 && npm run build",
+    "build": "npm run build",
+    "install-client": "npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
     "server": "nodemon app.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
   },
